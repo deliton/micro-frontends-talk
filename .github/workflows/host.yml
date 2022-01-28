@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - master
+      - main
     paths:
       - "packages/host/**"
 
@@ -18,19 +18,22 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.10'
       - run: npm install
       - run: npm run build
         env:
           PRODUCTION_DOMAIN: ${{ secrets.PRODUCTION_DOMAIN }}
 
-      - uses: chrislennon/action-ws-cli@v1.1
+      - uses: ItsKarma/aws-cli@v1.70.0
         with:
           args: s3 sync packages/host/dist s3://${{ secrets.AWS_S3_BUCKET_NAME }}/host/latest
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
-      - uses: chrislennon/action-ws-cli@v1.1
+      - uses: ItsKarma/aws-cli@v1.70.0
         with:
           args: cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }} --paths "/host/latest/index.html"
         env:
