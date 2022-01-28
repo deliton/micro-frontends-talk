@@ -2,6 +2,7 @@ const { merge } = require("webpack-merge");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const commonConfig = require("./webpack.common");
 const deps = require("./package.json").dependencies;
+const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 const domain = process.env.PRODUCTION_DOMAIN;
 
@@ -31,6 +32,9 @@ const prodConfig = {
           requiredVersion: deps["react-dom"],
         },
       },
+    }),
+    new HtmlWebPackPlugin({
+      template: "./src/index.html",
     }),
   ],
 };
