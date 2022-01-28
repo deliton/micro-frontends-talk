@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "scripts": {
     "build": "webpack --config=webpack.prod.js",
-    "build:dev": "webpack --config=webpack.dev.js",
+    "build:dev": "webpack --config=webpack.dev.js --mode development",
     "build:start": "cd dist && PORT=3002 npx serve",
-    "start": "webpack serve --open --config=webpack.dev.js",
-    "start:live": "webpack serve --open --live-reload --hot --config=webpack.dev.js"
+    "start": "webpack serve --open --config=webpack.dev.js --mode development",
+    "start:live": "webpack serve --open --live-reload --hot --config=webpack.dev.js --mode development"
   },
   "license": "MIT",
   "author": {
