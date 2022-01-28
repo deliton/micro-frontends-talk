@@ -1,5 +1,6 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const commonConfig = require("./webpack.common");
 const { merge } = require("webpack-merge");
 const deps = require("./package.json").dependencies;

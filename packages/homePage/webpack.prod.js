@@ -1,5 +1,6 @@
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const commonConfig = require("./webpack.common");
+const { VueLoaderPlugin } = require("vue-loader");
 const { merge } = require("webpack-merge");
 
 const prodConfig = {

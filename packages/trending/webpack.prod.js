@@ -1,5 +1,6 @@
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const commonConfig = require("./webpack.common");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { merge } = require("webpack-merge");
 
 const prodConfig = {
@@ -27,9 +28,6 @@ const prodConfig = {
     }),
     new MiniCssExtractPlugin({
       filename: "[name].css",
-    }),
-    new HtmlWebPackPlugin({
-      template: "./src/index.html",
     }),
   ],
 };
