@@ -1,5 +1,8 @@
 const path = require("path");
 
+const mode = process.env.NODE_ENV || "development";
+const isProd = mode === "production";
+
 module.exports = {
   resolve: {
     alias: {
@@ -34,7 +37,7 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          prod ? MiniCssExtractPlugin.loader : "style-loader",
+          isProd ? MiniCssExtractPlugin.loader : "style-loader",
           "css-loader",
         ],
       },
