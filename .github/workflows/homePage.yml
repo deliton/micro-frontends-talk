@@ -1,6 +1,7 @@
 name: deploy-home-page
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - master
