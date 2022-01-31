@@ -5,6 +5,8 @@ A Tech Talk held at Maestro.io about how micro frontends can solve a lot of prob
 
 A mock Crypto blog, implemented with Micro Frontend architecture and Webpack Module Federation. All Micro frontends are deployed separately to a AWS S3 Bucket and there's also a CloudFront layer that serves the site.
 
+Deployed site: https://d463jzbqq6pl1.cloudfront.net/
+
 # How the pages look like and how the MFE is mounted:
 
 ## Home Page ( VUE and React)
